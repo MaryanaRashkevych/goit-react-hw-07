@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOps';
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
@@ -17,18 +17,18 @@ const UserSchema = Yup.object().shape({
 });
 
 export default function ContactForm() {
-  const dispatch = useDispatch();
-
-  const initialValues = {
+    const dispatch = useDispatch();
+  
+    const initialValues = {
       name: "",
       number: "",
-  };
-
-  const handleSubmit = ({ name, number }, actions) => {
-      dispatch(addContact(name, number));
+    };
+  
+    const handleSubmit = ({ name, number }, actions) => {
+      dispatch(addContact({ name, number }));
       actions.resetForm();
-  };
-
+    };
+  
   return (
       <Formik initialValues={initialValues} validationSchema={UserSchema} onSubmit={handleSubmit}>
           <Form className={css.form}>
