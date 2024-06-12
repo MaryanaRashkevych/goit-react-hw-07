@@ -4,7 +4,8 @@
 }
 
 .input {
-  width: 100%;
+  padding-left: 12px;
+  width: 97%;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;

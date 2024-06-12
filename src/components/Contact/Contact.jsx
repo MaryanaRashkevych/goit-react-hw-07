@@ -11,8 +11,10 @@ export default function Contact({ contact }) {
 
   return (
     <div className={css.container}>
+         <div className={css.textContainer}>
       <p className={css.text}>{contact.name}</p>
       <p className={css.text}>{contact.number}</p>
+      </div>
       <button className={css.btn} onClick={() => handleDeleteContact(contact.id)}>Delete</button>
     </div>
   );
